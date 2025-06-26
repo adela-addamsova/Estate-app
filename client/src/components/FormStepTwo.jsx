@@ -1,5 +1,3 @@
-// components/FormStepTwo.jsx
-
 function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
     return (
         <div className='step-two-container'>
@@ -8,7 +6,11 @@ function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
                     name="fullName"
                     placeholder="Celé jméno"
                     value={form.fullName}
-                    onChange={handleChange}
+                    inputMode="text"
+                    onChange={(e) => {
+                        const clean = e.target.value.replace(/[^a-zA-ZáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s]/g, '');
+                        setForm({ ...form, fullName: clean });
+                    }}
                     className={`fullname mt-8 ${errors.fullName ? 'error-container' : ''}`}
                 />
                 {errors.fullName && <p className="error-message">{errors.fullName}</p>}
@@ -27,7 +29,7 @@ function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
                         }
                     }}
                     maxLength={9}
-                    placeholder="123456789"
+                    placeholder="606012345"
                     inputMode="numeric"
                     className={`phone !pl-[68px] ${errors.phone ? 'error-container' : ''}`}
                 />
