@@ -9,7 +9,7 @@ function isValidEmail(email) {
 }
 
 function isValidCzechPhone(phone) {
-  const czechPhoneRegex = /^(601|602|603|604|605|606|607|608|609|72[0-9]|73[0-9]|77[0-9]|79[0-9])\d{6}$/;
+  const czechPhoneRegex = /^(601|602|603|604|605|606|607|608|609|702|72[0-9]|73[0-9]|77[0-9]|79[0-9])\d{6}$/;
   return czechPhoneRegex.test(phone);
 }
 
