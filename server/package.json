@@ -2,8 +2,12 @@
   "dependencies": {
     "@koa/cors": "^5.0.0",
     "dotenv": "^16.5.0",
+    "ioredis": "^5.6.1",
     "koa": "^3.0.0",
     "koa-bodyparser": "^4.4.1",
+    "koa-helmet": "^8.0.1",
+    "koa-mongo-sanitize": "^1.1.0",
+    "koa-ratelimit": "^6.0.0",
     "mongoose": "^8.16.0"
   },
   "name": "server",
