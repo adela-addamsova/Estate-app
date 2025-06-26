@@ -7,17 +7,21 @@ function FormStepOne({ form, setForm, districtsByRegion, handleChange }) {
                 <h3>Typ nemovitosti:</h3>
                 <div className="estate-type">
                     {['dům', 'byt', 'pozemek'].map((type) => (
-                        <label key={type} className="radio-estate-type">
+                        <label key={type} className="estate-type-inner">
                             <input
                                 type="radio"
                                 name="estateType"
                                 value={type}
                                 checked={form.estateType === type}
                                 onChange={handleChange}
-                                className="accent-gold"
+                                className="sr-only peer"
                             />
+                            <div className="radio-button">
+                                <div className="radio-button-inner"></div>
+                            </div>
                             <span>{type}</span>
                         </label>
+
                     ))}
                 </div>
             </div>
@@ -33,26 +37,31 @@ function FormStepOne({ form, setForm, districtsByRegion, handleChange }) {
                 />
             </div>
 
-            {form.region && <h4 className="text-gold">Kraj: {form.region}</h4>}
+            <div className='district-container'>
+                {form.region && <h4 className="text-gold">Kraj: {form.region}</h4>}
 
-            {form.region && districtsByRegion[form.region] && (
-                <fieldset className="district-container">
-                    <legend>Vyberte okres</legend>
-                    {districtsByRegion[form.region].map((district) => (
-                        <label key={district} className="district-inner">
-                            <input
-                                type="radio"
-                                name="district"
-                                value={district}
-                                checked={form.district === district}
-                                onChange={handleChange}
-                                className="accent-gold"
-                            />
-                            <span>{district}</span>
-                        </label>
-                    ))}
-                </fieldset>
-            )}
+                {form.region && districtsByRegion[form.region] && (
+                    <fieldset className="districts">
+                        <legend>Vyberte okres</legend>
+                        {districtsByRegion[form.region].map((district) => (
+                            <label key={district} className="district-inner">
+                                <input
+                                    type="radio"
+                                    name="district"
+                                    value={district}
+                                    checked={form.district === district}
+                                    onChange={handleChange}
+                                    className="sr-only peer"
+                                />
+                                <div className="radio-button">
+                                    <div className="radio-button-inner"></div>
+                                </div>
+                                <span>{district}</span>
+                            </label>
+                        ))}
+                    </fieldset>
+                )}
+            </div>
         </>
     );
 }
