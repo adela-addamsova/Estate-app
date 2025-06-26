@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 @theme {
   --color-gold: #D0A331;
@@ -8,7 +8,6 @@
 
 
   --font-roboto: 'Roboto';
-  --font-montserrat: 'Montserrat';
 
   --breakpoint-xs: 460px;
   --breakpoint-sm: 640px;
@@ -27,12 +26,8 @@ html {
 }
 
 h3, h4, button, * {
-    @apply font-montserrat
+    @apply font-roboto
 }
-
-/* p, span, text, legend {
-    @apply font-roboto text-[16px];
-} */
 
 h3 {
     @apply text-[28px]
@@ -46,7 +41,7 @@ h4 {
   Form page
 --------------------*/
 
-.form-page {
+.page {
   @apply relative w-full min-h-screen;
 }
 
@@ -58,8 +53,8 @@ h4 {
   @apply w-full h-full object-cover opacity-[0.7];
 }
 
-.hero-img-overlay {
-    @apply absolute w-full top-[0] bg-[black]/40 h-full;
+.background-image-overlay {
+    @apply absolute w-full top-[0] bg-[white]/5 h-full;
 }
 
 .background-house {
@@ -82,7 +77,7 @@ h4 {
 }
 
 .estate-form {
-    @apply w-full mx-auto my-14 flex flex-col justify-between 2xl:w-[70%] 3xl:w-[60%]
+    @apply w-full mx-auto my-2 lg:my-14 flex flex-col justify-between 2xl:w-[70%] 3xl:w-[60%]
 }
 
 /* Buttons */
@@ -91,11 +86,20 @@ h4 {
 }
 
 .form-button {
-    @apply px-4 py-2 bg-navy cursor-pointer rounded-sm text-white m-2 xl:mt-12;
+    @apply px-4 py-2 bg-navy cursor-pointer rounded-sm text-white m-2 xl:mt-12  disabled:opacity-50;
 }
 
-.form-button:hover {
+.form-button:hover:not(:disabled) {
     @apply opacity-[0.8];
+}
+
+.radio-button {
+  @apply w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition
+    peer-checked:border-gold peer-checked:[&>div]:scale-100;
+}
+
+.radio-button-inner {
+  @apply w-2.5 h-2.5 rounded-full bg-gold scale-0 transition-transform;
 }
 
 /*Error message */
@@ -116,8 +120,8 @@ h4 {
     @apply flex gap-4;
 }
 
-.radio-estate-type {
-    @apply flex items-center space-x-2;
+.estate-type-inner {
+    @apply flex items-center space-x-3 cursor-pointer;
 }
 
 /* Region */
@@ -127,11 +131,15 @@ h4 {
 
 /* District */
 .district-container {
-    @apply my-4 space-y-2 border border-gray-300 rounded px-3 py-4 flex justify-start flex-wrap gap-4 lg:px-10 xl:w-[720px] 2xl:w-[820px];
+    @apply flex flex-col m-4 gap-6;
+}
+
+.districts {
+    @apply space-y-2 border border-gray-300 rounded px-3 py-4 flex justify-start flex-wrap gap-4 lg:px-10 xl:w-[820px] 2xl:w-[820px];
 }
 
 .district-inner {
-    @apply flex items-center space-x-2 mb-4;
+    @apply flex items-center space-x-2 mb-4 cursor-pointer;
 }
 
 /* Name, phone, email */
@@ -139,11 +147,11 @@ h4 {
     @apply mt-8 mb-14 gap-4 flex flex-col;
 }
 .fullname-container, .phone-container, .email-container {
-    @apply w-[95%] my-4 mx-auto 
+    @apply w-[90%] lg:w-[80%] my-4 mx-auto 
 }
 
 .fullname, .phone, .email {
-    @apply p-3 w-[100%] border-b placeholder:font-montserrat placeholder:tracking-wide
+    @apply p-3 w-[100%] border-b placeholder:font-roboto placeholder:tracking-wide
 }
 
 .phone-prefix {
@@ -167,4 +175,11 @@ h4 {
 
 .map-text {
     @apply text-[12px];
+}
+
+/*--------------------
+  Thank you page
+--------------------*/
+.thank-container {
+    @apply flex flex-col w-[90%] mx-auto my-15 text-center gap-8 px-10 py-20 shadow-xl bg-white rounded-2xl lg:w-[50%];
 }

@@ -144,8 +144,11 @@ export default function CZMap({ onSelect, region }) {
                             value={regionData.name}
                             checked={region === regionData.name}
                             onChange={() => onSelect(regionData.name)}
-                            className="accent-gold"
+                            className="sr-only peer"
                         />
+                        <div className="radio-button">
+                            <div className="radio-button-inner"></div>
+                        </div>
                         <span>{regionData.name}</span>
                     </label>
                 ))}
