@@ -50,7 +50,7 @@ app.use(helmet());
 
 // Handle estate submissions
 app.use(async (ctx, next) => {
-  if (ctx.method === 'POST' && ctx.path === '/api/estates') {
+  if (ctx.method === 'POST' && ctx.path === '/api/lead') {
     try {
       const parsed = estateSchema.parse(ctx.request.body);
       const estate = new Estate(parsed);
