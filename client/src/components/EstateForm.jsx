@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { validateStep2 } from '../utils/validations';
+import { isStep1Filled, isStep2Filled, validateStep2 } from '../utils/validations';
 import { districtsByRegion } from '../utils/districts';
 import FormStepOne from './FormStepOne';
 import FormStepTwo from './FormStepTwo';
@@ -26,16 +26,6 @@ function EstateForm() {
         setErrors({ ...errors, [e.target.name]: '' });
     };
 
-    const isStep1Filled =
-        form.estateType.trim() !== '' &&
-        form.region.trim() !== '' &&
-        form.district.trim() !== '';
-
-    const isStep2Filled =
-        form.fullName.trim() !== '' &&
-        form.email.trim() !== '' &&
-        form.phone.length === 9;
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');
@@ -47,19 +37,21 @@ function EstateForm() {
         const dataToSend = { ...form };
 
         try {
-            const res = await fetch('http://localhost:3000/api/estates', {
+            const res = await fetch('http://localhost:3000/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dataToSend),
             });
 
             if (res.ok) {
-                navigate('/lead');
+                navigate('/thank-you');
             } else {
                 const data = await res.json();
-                setMessage(`${data.error}: ${data.details}`);
+                console.error('Backend validation failed:', data);
+                setMessage('Odeslání formuláře se nezdařilo. Zkontrolujte prosím správnost údajů.');
             }
-        } catch {
+        } catch (error) {
+            console.error('Submit error:', error);
             setMessage('Odeslání formuláře se nezdařilo. Zkuste to prosím znovu.');
         }
     };
@@ -103,8 +95,8 @@ function EstateForm() {
                             <button
                                 type="button"
                                 onClick={() => setStep(step + 1)}
-                                disabled={!isStep1Filled}
-                                className="form-button !ml-auto disabled:opacity-50"
+                                disabled={!isStep1Filled(form)}
+                                className="form-button !ml-auto"
                             >
                                 Dále
                             </button>
@@ -113,8 +105,8 @@ function EstateForm() {
                         {step === 2 && (
                             <button
                                 type="submit"
-                                disabled={!isStep2Filled}
-                                className="form-button ml-auto !bg-gold disabled:opacity-50"
+                                disabled={!isStep2Filled(form)}
+                                className="form-button ml-auto !bg-gold"
                             >
                                 Odeslat
                             </button>
@@ -123,7 +115,7 @@ function EstateForm() {
                 </form>
 
                 {message && (
-                    <p className="mt-4 text-sm text-red-600">
+                    <p className="mt-4 text-[16px] text-red-600">
                         {message}
                     </p>
                 )}
