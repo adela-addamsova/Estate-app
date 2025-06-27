@@ -15,3 +15,4 @@ export const estateSchema = z.object({
         ),
     email: z.string().max(100).min(1).email('Zadejte prosím platnou emailovou adresu.'),
 }).strip();
+

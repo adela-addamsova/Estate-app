@@ -154,6 +154,5 @@ export default function CZMap({ onSelect, region }) {
                 ))}
             </div>
         </div>
-
     );
 }
