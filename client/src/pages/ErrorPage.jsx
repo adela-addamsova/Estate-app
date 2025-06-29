@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import BackgroundLayout from '../components/BackgroundLayout';
 
@@ -5,7 +6,7 @@ import BackgroundLayout from '../components/BackgroundLayout';
 function ErrorPage() {
   return (
     <BackgroundLayout>
-      <div className="error-container">
+      <div className="error-page-container">
         <h3>Stránka neexistuje!</h3>
         <Link to="/chci-nabidku" className="form-button !w-25 !mx-auto !mt-4">
           Zpět
