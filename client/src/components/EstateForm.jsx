@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { isStep1Filled, isStep2Filled, validateStep2 } from '../utils/validations';
+import { isStep1Filled, isStep2Filled, isStep2Valid } from '../utils/validations';
 import { districtsByRegion } from '../utils/districts';
 import FormStepOne from './FormStepOne';
 import FormStepTwo from './FormStepTwo';
@@ -30,7 +30,7 @@ function EstateForm() {
         e.preventDefault();
         setMessage('');
 
-        const validationErrors = validateStep2(form);
+        const validationErrors = isStep2Valid(form);
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length > 0) return;
 

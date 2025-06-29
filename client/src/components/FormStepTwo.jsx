@@ -8,8 +8,9 @@ function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
                     value={form.fullName}
                     inputMode="text"
                     onChange={(e) => {
-                        const clean = e.target.value.replace(/[^a-zA-ZáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s]/g, '');
-                        setForm({ ...form, fullName: clean });
+                        const replaceNotAllowedCharacters = e.target.value.replace(/[^a-zA-ZáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s]/g, '');
+                        setForm({ ...form, fullName: replaceNotAllowedCharacters });
+                        setErrors({ ...errors, fullName: '' });
                     }}
                     className={`fullname mt-8 ${errors.fullName ? 'error-container' : ''}`}
                 />

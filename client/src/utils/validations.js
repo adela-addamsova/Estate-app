@@ -17,21 +17,21 @@ export function isStep2Filled(form) {
   );
 }
 
-export function validateStep2(form) {
-  const partialSchema = estateSchema.pick({
+export function isStep2Valid(form) {
+  const dataToValidate = estateSchema.pick({
     fullName: true,
     email: true,
     phone: true,
   });
 
-  const result = partialSchema.safeParse(form);
+  const result = dataToValidate.safeParse(form);
 
   if (!result.success) {
-    const formatted = result.error.format();
+    const formattedError = result.error.format();
     return {
-      fullName: formatted.fullName?._errors?.[0],
-      email: formatted.email?._errors?.[0],
-      phone: formatted.phone?._errors?.[0],
+      fullName: formattedError.fullName?._errors?.[0],
+      email: formattedError.email?._errors?.[0],
+      phone: formattedError.phone?._errors?.[0],
     };
   }
 
