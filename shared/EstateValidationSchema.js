@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const estateSchema = z.object({
+export const estateValidationSchema = z.object({
     estateType: z.string().min(1, 'Typ nemovitosti je povinný.'),
     region: z.string().min(1, 'Kraj je povinný.'),
     district: z.string().min(1, 'Okres je povinný.'),

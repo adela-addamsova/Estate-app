@@ -1,5 +1,5 @@
 /* Validations of form steps */
-import { estateSchema } from '../../../shared/estateSchema';
+import { estateValidationSchema } from '../../../shared/EstateValidationSchema';
 
 export function isStep1Filled(form) {
   return (
@@ -18,7 +18,7 @@ export function isStep2Filled(form) {
 }
 
 export function isStep2Valid(form) {
-  const dataToValidate = estateSchema.pick({
+  const dataToValidate = estateValidationSchema.pick({
     fullName: true,
     email: true,
     phone: true,
