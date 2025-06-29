@@ -6,9 +6,7 @@ import dotenv from 'dotenv';
 import Estate from './models/Estate.js';
 import mongoSanitize from 'koa-mongo-sanitize';
 import helmet from 'koa-helmet';
-import { estateSchema } from '../shared/estateSchema.js';
-import ratelimit from 'koa-ratelimit';
-import Redis from 'ioredis'
+import { estateValidationSchema } from '../shared/EstateValidationSchema.js';
 
 dotenv.config();
 
@@ -37,22 +35,11 @@ app.use(bodyParser({
 app.use(mongoSanitize());
 app.use(helmet());
 
-// const redis = new Redis();
-
-// app.use(ratelimit({
-//   driver: 'redis',
-//   db: redis,
-//   duration: 60000,
-//   errorMessage: 'Too many requests.',
-//   id: (ctx) => ctx.ip,
-//   max: 100,
-// }));
-
 // Handle estate submissions
 app.use(async (ctx, next) => {
-  if (ctx.method === 'POST' && ctx.path === '/api/lead') {
+  if (ctx.method === 'POST' && ctx.path === '/lead') {
     try {
-      const parsed = estateSchema.parse(ctx.request.body);
+      const parsed = estateValidationSchema.parse(ctx.request.body);
       const estate = new Estate(parsed);
       await estate.save();
       ctx.status = 201;
