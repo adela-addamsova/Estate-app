@@ -185,8 +185,8 @@ h4 {
 }
 
 /*--------------------
-  Thank you page
+  Thank + Error page
 --------------------*/
-.thank-container {
+.thank-container, .error-container {
   @apply flex flex-col w-[90%] mx-auto my-15 text-center gap-8 px-10 py-20 shadow-xl bg-white rounded-2xl lg:w-[50%];
 }
