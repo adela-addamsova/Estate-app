@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isStep1Filled, isStep2Filled, isStep2Valid } from '../utils/validations';
@@ -92,7 +93,7 @@ function EstateForm() {
                                 type="button"
                                 onClick={() => {
                                     setStep(step - 1);
-                                    setMessage('');
+                                    if(message){setMessage('')};
                                 }}
                                 className="form-button"
                             >

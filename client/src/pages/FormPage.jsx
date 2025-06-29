@@ -1,3 +1,4 @@
+import React from 'react';
 import EstateForm from "../components/EstateForm";
 import BackgroundLayout from '../components/BackgroundLayout';
 

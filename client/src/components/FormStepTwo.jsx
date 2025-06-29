@@ -1,3 +1,5 @@
+import React from 'react';
+
 function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
     return (
         <div className='step-two-container'>

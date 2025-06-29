@@ -1,3 +1,4 @@
+import React from 'react';
 import backgroundImg from '../assets/background.jpg';
 
 function BackgroundLayout({ children }) {

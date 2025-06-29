@@ -1,3 +1,4 @@
+import React from 'react';
 import CZMap from './CzMap';
 
 function FormStepOne({ form, setForm, districtsByRegion, handleChange }) {
