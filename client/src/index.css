@@ -8,11 +8,13 @@
 
   --font-roboto: 'Roboto';
 
+  --breakpoint-xxs: 350px;
   --breakpoint-xs: 460px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
+  --breakpoint-1xl: 1400px;
   --breakpoint-2xl: 1600px;
   --breakpoint-3xl: 2000px;
 }
@@ -24,22 +26,24 @@ html {
   scrollbar-gutter: stable;
 }
 
-h3, h4, button, * {
-    @apply font-roboto
+h3,
+h4,
+button,
+* {
+  @apply font-roboto
 }
 
 h3 {
-    @apply text-[28px]
+  @apply text-[28px]
 }
 
 h4 {
-    @apply text-[20px]
+  @apply text-[20px]
 }
 
 /*--------------------
   Form page
 --------------------*/
-
 .page {
   @apply relative w-full min-h-screen;
 }
@@ -53,7 +57,7 @@ h4 {
 }
 
 .background-image-overlay {
-    @apply absolute w-full top-[0] bg-[white]/5 h-full;
+  @apply absolute w-full top-[0] bg-[white]/5 h-full;
 }
 
 .background-house {
@@ -76,25 +80,24 @@ h4 {
 }
 
 .estate-form {
-    @apply w-full mx-auto my-2 lg:my-14 flex flex-col justify-between 2xl:w-[70%] 3xl:w-[60%]
+  @apply w-full mx-auto my-2 lg:my-14 flex flex-col justify-between 2xl:w-[70%] 3xl:w-[60%]
 }
 
 /* Buttons */
 .form-buttons {
-    @apply flex justify-between pt-2 xl:w-full 2xl:w-[820px] 3xl:w-[97%];
+  @apply flex justify-between pt-2 xl:w-full 2xl:w-[820px] 3xl:w-[97%];
 }
 
 .form-button {
-    @apply px-4 py-2 bg-navy cursor-pointer rounded-sm text-white m-2 xl:mt-12  disabled:opacity-50;
+  @apply px-4 py-2 bg-navy cursor-pointer rounded-sm text-white m-2 xl:mt-12 disabled:opacity-50;
 }
 
 .form-button:hover:not(:disabled) {
-    @apply opacity-[0.8];
+  @apply opacity-[0.8];
 }
 
 .radio-button {
-  @apply w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition
-    peer-checked:border-gold peer-checked:[&>div]:scale-100;
+  @apply w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center transition peer-checked:border-gold peer-checked:[&>div]:scale-100;
 }
 
 .radio-button-inner {
@@ -103,82 +106,87 @@ h4 {
 
 /*Error message */
 .error-message {
-    @apply text-red-600 text-sm mt-1 w-[95%] mx-auto;
+  @apply text-red-600 text-sm mt-1 w-[95%] mx-auto;
 }
 
 .error-container {
-    @apply border-red-500;
+  @apply border-red-500;
 }
 
 /* Estate */
-.estate-type-container, .region-container {
-    @apply flex flex-col my-10 gap-3 mx-4;
+.estate-type-container,
+.region-container {
+  @apply flex flex-col my-10 gap-3 mx-4;
 }
 
 .estate-type {
-    @apply flex gap-4;
+  @apply flex gap-4;
 }
 
 .estate-type-inner {
-    @apply flex items-center space-x-3 cursor-pointer;
+  @apply flex items-center space-x-3 cursor-pointer;
 }
 
 /* Region */
 .region-container-mobile {
-    @apply xl:hidden my-4 space-y-2 rounded px-2 py-4 flex flex-col justify-start gap-4 lg:px-10
+  @apply md:hidden my-4 space-y-2 rounded px-2 py-4 flex flex-col xs:flex-row justify-start gap-4 xs:flex-wrap
 }
 
 /* District */
 .district-container {
-    @apply flex flex-col m-4 gap-6;
+  @apply flex flex-col m-4 gap-6;
 }
 
 .districts {
-    @apply space-y-2 border border-gray-300 rounded px-3 py-4 flex justify-start flex-wrap gap-4 lg:px-10 xl:w-[820px] 2xl:w-[820px];
+  @apply space-y-2 border border-gray-300 rounded px-3 py-4 flex justify-start flex-wrap gap-4 lg:px-10 xl:w-[820px] 2xl:w-[820px];
 }
 
 .district-inner {
-    @apply flex items-center space-x-2 mb-4 cursor-pointer;
+  @apply flex items-center space-x-2 mb-4 cursor-pointer;
 }
 
 /* Name, phone, email */
 .step-two-container {
-    @apply mt-8 mb-14 gap-4 flex flex-col;
+  @apply mt-8 mb-14 gap-4 flex flex-col;
 }
-.fullname-container, .phone-container, .email-container {
-    @apply w-[90%] lg:w-[80%] my-4 mx-auto 
+
+.fullname-container,
+.phone-container,
+.email-container {
+  @apply w-[90%] lg:w-[80%] my-4 mx-auto
 }
 
 .fullname, .phone, .email {
-    @apply p-3 w-[100%] border-b placeholder:font-roboto placeholder:tracking-wide
+  @apply p-3 w-[100%] border-b placeholder:font-roboto placeholder:tracking-wide
 }
 
 .phone-prefix {
-    @apply absolute left-3 top-[24px] -translate-y-1/2 text-gray-500 select-none;
+  @apply absolute left-3 top-[24px] -translate-y-1/2 text-gray-500 select-none;
 }
 
 /*--------------------
   Map
 --------------------*/
 .map {
-    @apply w-[820px] h-[530px] ml-1 hidden xl:block
+  @apply w-[700px] 2xl:w-[820px] h-[530px] ml-1 hidden md:block;
 }
 
 .land {
-    @apply fill-white stroke-gray-300 cursor-pointer
+  @apply fill-white stroke-gray-300 cursor-pointer;
 }
 
-.land:hover, .land.selected {
-    @apply fill-gold;
+.land:hover,
+.land.selected {
+  @apply fill-gold;
 }
 
 .map-text {
-    @apply text-[12px];
+  @apply text-[12px];
 }
 
 /*--------------------
   Thank you page
 --------------------*/
 .thank-container {
-    @apply flex flex-col w-[90%] mx-auto my-15 text-center gap-8 px-10 py-20 shadow-xl bg-white rounded-2xl lg:w-[50%];
+  @apply flex flex-col w-[90%] mx-auto my-15 text-center gap-8 px-10 py-20 shadow-xl bg-white rounded-2xl lg:w-[50%];
 }
