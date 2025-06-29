@@ -5,9 +5,14 @@ import { districtsByRegion } from '../utils/districts';
 import FormStepOne from './FormStepOne';
 import FormStepTwo from './FormStepTwo';
 
+const hostname = import.meta.env.VITE_HOSTNAME;
+const port = import.meta.env.VITE_PORT;
+
 function EstateForm() {
     const navigate = useNavigate();
     const [step, setStep] = useState(1);
+
+    const backendEndpoint = `http://${hostname}:${port}/lead`;
 
     const [form, setForm] = useState({
         estateType: '',
@@ -24,6 +29,7 @@ function EstateForm() {
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
         setErrors({ ...errors, [e.target.name]: '' });
+        setMessage('');
     };
 
     const handleSubmit = async (e) => {
@@ -37,7 +43,7 @@ function EstateForm() {
         const dataToSend = { ...form };
 
         try {
-            const res = await fetch('http://localhost:3000/api/lead', {
+            const res = await fetch(backendEndpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dataToSend),
@@ -84,7 +90,10 @@ function EstateForm() {
                         {step > 1 && (
                             <button
                                 type="button"
-                                onClick={() => setStep(step - 1)}
+                                onClick={() => {
+                                    setStep(step - 1);
+                                    setMessage('');
+                                }}
                                 className="form-button"
                             >
                                 Zpět
