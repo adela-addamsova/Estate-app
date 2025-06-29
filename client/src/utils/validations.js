@@ -1,5 +1,5 @@
 /* Validations of form steps */
-import { estateValidationSchema } from '../../../shared/EstateValidationSchema';
+import { estateValidationSchema } from 'shared';
 
 export function isStep1Filled(form) {
   return (

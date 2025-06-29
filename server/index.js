@@ -6,8 +6,7 @@ import dotenv from 'dotenv';
 import Estate from './models/Estate.js';
 import mongoSanitize from 'koa-mongo-sanitize';
 import helmet from 'koa-helmet';
-import { estateValidationSchema } from '../shared/EstateValidationSchema.js';
-
+import { estateValidationSchema } from 'shared';
 dotenv.config();
 
 const app = new Koa();

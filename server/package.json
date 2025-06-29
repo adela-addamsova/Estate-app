@@ -6,7 +6,8 @@
     "koa-bodyparser": "^4.4.1",
     "koa-helmet": "^8.0.1",
     "koa-mongo-sanitize": "^1.1.0",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "shared": "file:../shared"
   },
   "name": "server",
   "version": "1.0.0",
