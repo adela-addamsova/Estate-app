@@ -5,7 +5,7 @@ A full-stack real estate app built with:
  - __Database:__ MongoDB
  - __Environment:__ Docker + Docker Compose
 
-App provides a page with two-step form where user fills out information about estate he wants to sell in the first step (estate type, region, and district), and information about himself in the second step. After submission, data from the form are accessible in MongoDb.
+App provides a page with two-step form where user fills in information about estate he wants to sell in the first step (estate type, region, and district), and information about himself in the second step. After submission, data from the form are accessible in MongoDb.
 
 ## Prerequisites
  - Docker
@@ -13,7 +13,7 @@ App provides a page with two-step form where user fills out information about es
 ## Installation
 Clone the repository 
 ```bash
-git clone git clone https://github.com/adela-addamsova/Estate-app
+git clone https://github.com/adela-addamsova/Estate-app
 ```
 ```bash
 cd estate-app
