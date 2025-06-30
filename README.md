@@ -13,8 +13,9 @@ App provides a page with two-step form where user fills out information about es
 ## Installation
 Clone the repository 
 ```bash
-git clone 
-
+git clone git clone https://github.com/adela-addamsova/Estate-app
+```
+```bash
 cd estate-app
 ```
 
