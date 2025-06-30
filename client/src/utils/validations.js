@@ -1,6 +1,8 @@
 /* Validations of form steps */
 import { estateValidationSchema } from 'shared';
 
+export const validCzechChars = /[^a-zA-ZáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s]/g;
+
 export function isStep1Filled(form) {
   return (
     form.estateType.trim() !== '' &&

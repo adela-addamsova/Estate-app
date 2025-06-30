@@ -1,4 +1,5 @@
 import React from 'react';
+import { validCzechChars } from '../utils/validations'
 
 function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
     return (
@@ -10,7 +11,7 @@ function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
                     value={form.fullName}
                     inputMode="text"
                     onChange={(e) => {
-                        const replaceNotAllowedCharacters = e.target.value.replace(/[^a-zA-ZáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s]/g, '');
+                        const replaceNotAllowedCharacters = e.target.value.replace({validCzechChars}, '');
                         setForm({ ...form, fullName: replaceNotAllowedCharacters });
                         setErrors({ ...errors, fullName: '' });
                     }}
