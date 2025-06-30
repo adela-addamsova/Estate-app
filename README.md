@@ -8,7 +8,7 @@ A full-stack real estate app built with:
 App provides a page with two-step form where user fills in information about estate he wants to sell in the first step (estate type, region, and district), and information about himself in the second step. After submission, data from the form are accessible in MongoDb.
 
 ## Prerequisites
- - Docker
+ - [Docker](https://docs.docker.com/)
  
 ## Installation
 Clone the repository 
@@ -30,5 +30,5 @@ This will:
 
 
 ## Access the app 
-- Frontend: http://localhost:5173
+- Frontend: http://localhost/chci-nabidku
 - Database: mongodb://localhost:27017/Estate-app
