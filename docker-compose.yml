@@ -1,0 +1,36 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    container_name: react_estate_app
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - shared-net
+
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: node_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks:
+      - shared-net
+
+  mongo:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    networks:
+      - shared-net
+
+networks:
+  shared-net:
+    driver: bridge
