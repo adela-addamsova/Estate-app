@@ -93,7 +93,7 @@ function EstateForm() {
                                 type="button"
                                 onClick={() => {
                                     setStep(step - 1);
-                                    if(message){setMessage('')};
+                                    if (message) { setMessage('') };
                                 }}
                                 className="form-button"
                             >
