@@ -15,4 +15,3 @@ export const estateValidationSchema = z.object({
         ),
     email: z.string().max(100).min(5, 'Zadejte prosím platnou emailovou adresu.').email('Zadejte prosím platnou emailovou adresu.'),
 }).strip();
-
