@@ -13,7 +13,7 @@ App provides a page with two-step form where user fills in information about est
 ## Installation
 Clone the repository 
 ```bash
-git clone https://github.com/adela-addamsova/Estate-app
+git clone https://github.com/adela-addamsova/estate-app
 ```
 ```bash
 cd estate-app
