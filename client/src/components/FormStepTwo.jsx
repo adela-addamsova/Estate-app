@@ -11,7 +11,7 @@ function FormStepTwo({ form, setForm, errors, handleChange, setErrors }) {
                     value={form.fullName}
                     inputMode="text"
                     onChange={(e) => {
-                        const replaceNotAllowedCharacters = e.target.value.replace({validCzechChars}, '');
+                        const replaceNotAllowedCharacters = e.target.value.replace(validCzechChars, '');
                         setForm({ ...form, fullName: replaceNotAllowedCharacters });
                         setErrors({ ...errors, fullName: '' });
                     }}
